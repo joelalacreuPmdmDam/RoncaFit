@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "B8JdSt6PM+jVe0nzUCJ4jGzYO3fQF7vg08TQOpvxcgE=",
+  "Source": "EmptyRestAPI",
+  "BasePath": "_content/EmptyRestAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

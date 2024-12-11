@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.CalculadoraRMFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/rm_calculator"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_rm_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/rmTitle"
+        android:textSize="25dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sumar_reps_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="+"
+        android:textSize="18sp"
+        app:cornerRadius="100dp"
+        app:layout_constraintStart_toEndOf="@+id/et_reps"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reps" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sumar_peso_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="+"
+        android:textSize="18sp"
+        app:cornerRadius="100dp"
+        app:layout_constraintStart_toEndOf="@+id/et_peso"
+        app:layout_constraintTop_toBottomOf="@+id/tv_peso" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/restar_reps_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="-"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:cornerRadius="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/et_reps"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reps" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/restar_peso_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="-"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:cornerRadius="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/et_peso"
+        app:layout_constraintTop_toBottomOf="@+id/tv_peso" />
+
+
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/calcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_reps" />
+
+
+    <EditText
+        android:id="@+id/et_peso"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_peso" />
+
+    <!--
+    <ImageButton
+        android:id="@+id/restar_reps_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/restar"
+        app:layout_constraintEnd_toStartOf="@+id/et_reps"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reps" />
+
+    <ImageButton
+        android:id="@+id/restar_peso_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/restar"
+        app:layout_constraintEnd_toStartOf="@+id/et_peso"
+        app:layout_constraintTop_toBottomOf="@+id/tv_peso" />
+
+        <ImageButton
+        android:id="@+id/sumar_peso_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/anyadir"
+        app:layout_constraintStart_toEndOf="@+id/et_peso"
+        app:layout_constraintTop_toBottomOf="@+id/tv_peso" />
+
+    <ImageButton
+        android:id="@+id/sumar_reps_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/anyadir"
+        app:layout_constraintStart_toEndOf="@+id/et_reps"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reps" />
+-->
+    <EditText
+        android:id="@+id/et_reps"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="0"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reps" />
+
+    <TextView
+        android:id="@+id/tv_resultRm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rm_title" />
+
+    <TextView
+        android:id="@+id/tv_peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="@string/peso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/tv_reps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/reps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_peso" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

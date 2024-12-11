@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">RoncaFit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password_til">Contraseña</string>
+    <string name="iniciarSesion">Iniciar sesión</string>
+    <string name="user_til">Correo electrónico</string>
+    <string name="rm_calculator">CALCULADORA RM</string>
+    <string name="home_nav_string">INICIO</string>
+    <string name="chat">CHAT</string>
+    <string name="settings">AJUSTES</string>
+    <string name="peso">PESO</string>
+    <string name="reps">REPS</string>
+    <string name="calcular">CALCULAR</string>
+    <string name="rmTitle">"Tu 1RM es de: "</string>
+    <string name="reservar">RESERVAR</string>
+</resources>

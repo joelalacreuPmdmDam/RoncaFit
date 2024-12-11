@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.RoncaFit" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Color Primario -->
+        <item name="colorPrimary">#2563eb</item>
+        <!-- Color Primario Variante (usualmente más oscuro) -->
+        <item name="colorPrimaryVariant">#1d4ed8</item>
+        <!-- Color Secundario (para acentos) -->
+        <item name="colorSecondary">#34d399</item>
+        <!-- Color de Fondo -->
+        <item name="android:colorBackground">#ffffff</item>
+        <!-- Color para el texto principal -->
+        <item name="android:textColorPrimary">#000000</item>
+    </style>
+
+    <style name="ActionBarCustomTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+    <style name="Theme.RoncaFit" parent="Base.Theme.RoncaFit" />
+</resources>
