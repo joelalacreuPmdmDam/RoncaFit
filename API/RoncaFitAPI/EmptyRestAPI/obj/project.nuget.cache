@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RN6mhpHiY5I=",
+  "dgSpecHash": "TvYG3eDvpOY=",
   "success": true,
-  "projectFilePath": "E:\\TFM_Carlet\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj",
+  "projectFilePath": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joela\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\joela\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
@@ -51,5 +51,26 @@
     "C:\\Users\\joela\\.nuget\\packages\\system.windows.extensions\\8.0.0\\system.windows.extensions.8.0.0.nupkg.sha512",
     "C:\\Users\\joela\\.nuget\\packages\\zstdsharp.port\\0.8.0\\zstdsharp.port.0.8.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"System.Text.Json\" 8.0.3 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-8g4q-xg66-9fp4",
+      "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"System.Text.Json\" 8.0.3 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-hh2w-p6rv-4g7w",
+      "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

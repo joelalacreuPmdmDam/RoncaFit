@@ -19,6 +19,7 @@ import retrofit2.Response
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.net.SocketTimeoutException
 
 
 class LoginFragment : Fragment() {
@@ -61,28 +62,56 @@ class LoginFragment : Fragment() {
 
     private fun login(mail: String, password: String) {
         lifecycleScope.launch(Dispatchers.IO) {
-            val loginRequest = LoginRequest(mail, password, "RoncaFit")
-            val apiService = RetrofitObject.getInstance().create(AuthService::class.java)
-            val response = apiService.login(loginRequest)
-            withContext(Dispatchers.Main) {
-                if(response.isSuccessful){
-                    val loginResponse = response.body()
-                    loginResponse?.let {
-                        Toast.makeText(requireContext(), "Login exitoso. Bienvenido: ${it.nombreUsuario}", Toast.LENGTH_LONG).show()
-                        saveToken(it.token,it.nombreUsuario,it.idCliente)
-                        mListener.onLogInBtnClicked()
-                    } ?: run {
-                        Toast.makeText(requireContext(), "Respuesta vacía del servidor", Toast.LENGTH_SHORT).show()
+            try {
+                // Crear la solicitud de login
+                val loginRequest = LoginRequest(mail, password, "RoncaFit")
+                val apiService = RetrofitObject.getInstance().create(AuthService::class.java)
+
+                // Realizar la solicitud al servidor
+                val response = apiService.login(loginRequest)
+
+                withContext(Dispatchers.Main) {
+                    if (response.isSuccessful) {
+                        val loginResponse = response.body()
+                        loginResponse?.let {
+                            Toast.makeText(requireContext(), "Login exitoso. Bienvenido: ${it.nombreUsuario}", Toast.LENGTH_LONG).show()
+                            saveToken(it.token, it.nombreUsuario, it.idCliente)
+                            mListener.onLogInBtnClicked()
+                        } ?: run {
+                            // Manejar respuesta vacía del servidor
+                            Toast.makeText(requireContext(), "Respuesta vacía del servidor", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        // Manejar errores HTTP
+                        Toast.makeText(
+                            requireContext(),
+                            "Error en el servidor: ${response.code()} - ${response.message()}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-                } else {
-                    Toast.makeText(requireContext(),"Se ha producido un error iniciando sesión",
-                        Toast.LENGTH_SHORT)
-                        .show()
+                }
+            } catch (e: SocketTimeoutException) {
+                // Manejar tiempo de espera agotado
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Tiempo de espera agotado. Verifica tu conexión a internet e inténtalo de nuevo.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            } catch (e: Exception) {
+                // Manejar otros errores
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Ocurrió un error: ${e.localizedMessage}",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
-
         }
     }
+
 
     private fun saveToken(token: String, nombreUsuario: String, idCliente: Int) {
         val sharedPreferences = requireContext().getSharedPreferences("es.jac.roncafit_preferences", Context.MODE_PRIVATE)

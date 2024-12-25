@@ -6,11 +6,9 @@ namespace EmptyRestAPI.Resources
     {
         
         //Sistemas
-        public enum Sistemas { RoncaFit }//Desarrollo, MEUSPProd,
+        public enum Sistemas { RoncaFit }
 
         //Cadenas de conexión para los sitemas
-        //const string DesarrolloConn = "Server=isc03.improlog.com; Database=Desarrollo; User Id=usrDesarrollo; Password=aeoxi2?fpH74; MultipleActiveResultSets=True;";
-        //const string MEUSPProdConn = "Server=isc04.improlog.com; Database=IIWS_MEUSP; User Id=sa; Password=868imp$; MultipleActiveResultSets=True;";
         const string RoncaFitConn = "Server=192.168.56.1; Database=RoncaFit; User Id=sa; Password=1234; MultipleActiveResultSets=True;";
         //Función que devuelve la cadena de conexión para el sistema
         private static string CadenaConn(Sistemas Sistema)
@@ -18,14 +16,6 @@ namespace EmptyRestAPI.Resources
             string Resultado = "";
             switch (Sistema.ToString())
             {
-                /*
-                case "Desarrollo":
-                    Resultado = DesarrolloConn;
-                    break;
-                case "MEUSPProd":
-                    Resultado = MEUSPProdConn;
-                    break;
-                */
                 case "RoncaFit":
                     Resultado = RoncaFitConn;
                     break;
