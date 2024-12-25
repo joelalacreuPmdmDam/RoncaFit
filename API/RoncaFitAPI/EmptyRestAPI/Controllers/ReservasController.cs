@@ -47,22 +47,6 @@ namespace EmptyRestAPI.Controllers
         [HttpPost("insertar")]
         public ActionResult InsertarReserva([FromBody] ReservaObject nuevaReserva)
         {
-            /*
-            if (nuevaReserva == null || nuevaReserva.idActividadTablon == null || nuevaReserva.idCliente == null)
-            {
-                return BadRequest("Reserva inválida.");
-            }
-
-            bool resultado = ReservasResource.InsertarReserva(nuevaReserva);
-            if (resultado)
-            {
-                return Ok("Reserva insertada correctamente");
-            }
-            else
-            {
-                return StatusCode(500, "Error al insertar la reserva.");
-            }*/
-
             if (nuevaReserva == null || nuevaReserva.idActividadTablon == null || nuevaReserva.idCliente == null)
             {
                 return BadRequest("Reserva inválida.");

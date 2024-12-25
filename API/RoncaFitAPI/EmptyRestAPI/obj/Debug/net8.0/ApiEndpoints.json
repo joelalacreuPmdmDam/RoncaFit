@@ -1,0 +1,417 @@
+[
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ActividadesController",
+    "Method": "ActualizarActividad",
+    "RelativePath": "Actividades/editar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "actividadActualizada",
+        "Type": "EmptyRestAPI.Models.ActividadObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ActividadesController",
+    "Method": "EliminarActividad",
+    "RelativePath": "Actividades/eliminar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "actividadEliminar",
+        "Type": "EmptyRestAPI.Models.ActividadObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ActividadesController",
+    "Method": "InsertarActividad",
+    "RelativePath": "Actividades/insertar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevaActividad",
+        "Type": "EmptyRestAPI.Models.ActividadObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ActividadesController",
+    "Method": "Get_Actividades",
+    "RelativePath": "Actividades/obtener",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "EmptyRestAPI.Models.LoginObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ClientesController",
+    "Method": "ActualizarCliente",
+    "RelativePath": "Clientes/editar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteActualizado",
+        "Type": "EmptyRestAPI.Models.ClienteObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ClientesController",
+    "Method": "EliminarCliente",
+    "RelativePath": "Clientes/eliminar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteEliminar",
+        "Type": "EmptyRestAPI.Models.ClienteObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ClientesController",
+    "Method": "InsertarCliente",
+    "RelativePath": "Clientes/insertar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevoCliente",
+        "Type": "EmptyRestAPI.Models.ClienteObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ClientesController",
+    "Method": "Get_Clientes",
+    "RelativePath": "Clientes/obtener",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.EjerciciosController",
+    "Method": "Get_Ejercicios",
+    "RelativePath": "Ejercicios/obtener",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ejercicio",
+        "Type": "EmptyRestAPI.Models.EjercicioObject",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.EmpleadosController",
+    "Method": "ActualizarEmpleado",
+    "RelativePath": "Empleados/editar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empleadoActualizado",
+        "Type": "EmptyRestAPI.Models.EmpleadoObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.EmpleadosController",
+    "Method": "EliminarEmpleado",
+    "RelativePath": "Empleados/eliminar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empleadoEliminar",
+        "Type": "EmptyRestAPI.Models.EmpleadoObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.EmpleadosController",
+    "Method": "InsertarEmpleado",
+    "RelativePath": "Empleados/insertar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevoEmpleado",
+        "Type": "EmptyRestAPI.Models.EmpleadoObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.EmpleadosController",
+    "Method": "Get_Empleados",
+    "RelativePath": "Empleados/obtener",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.InstructoresController",
+    "Method": "Get_ActividadesByInstructor",
+    "RelativePath": "Instructores/{idEmpleado}/actividades",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEmpleado",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.InstructoresController",
+    "Method": "Editar_InstructorActs",
+    "RelativePath": "Instructores/{idEmpleado}/actividades",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEmpleado",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "nuevasActividades",
+        "Type": "EmptyRestAPI.Models.ActividadObject[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.InstructoresController",
+    "Method": "Get_InstructoresDisponibles",
+    "RelativePath": "Instructores/disponibles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "actTablon",
+        "Type": "EmptyRestAPI.Models.TablonActividadesObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.InstructoresController",
+    "Method": "Get_InstructoresInfo",
+    "RelativePath": "Instructores/obtener",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ReservasController",
+    "Method": "ActualizarReserva",
+    "RelativePath": "Reservas/editar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reservaActualizada",
+        "Type": "EmptyRestAPI.Models.ReservaObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ReservasController",
+    "Method": "EliminarReserva",
+    "RelativePath": "Reservas/eliminar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reserva",
+        "Type": "EmptyRestAPI.Models.ReservaObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ReservasController",
+    "Method": "InsertarReserva",
+    "RelativePath": "Reservas/insertar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevaReserva",
+        "Type": "EmptyRestAPI.Models.ReservaObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ReservasController",
+    "Method": "Get_Reservas",
+    "RelativePath": "Reservas/obtener",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.RutinasController",
+    "Method": "Get_Rutinas",
+    "RelativePath": "Rutinas/obtener",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.StatusController",
+    "Method": "Get",
+    "RelativePath": "Status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.StatusController",
+    "Method": "Post",
+    "RelativePath": "Status",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.TablonActividadesController",
+    "Method": "ActualizarActTablon",
+    "RelativePath": "TablonActividades/editar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "actTablonActualizada",
+        "Type": "EmptyRestAPI.Models.TablonActividadesObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.TablonActividadesController",
+    "Method": "EliminarActividad",
+    "RelativePath": "TablonActividades/eliminar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "actTablonEliminar",
+        "Type": "EmptyRestAPI.Models.TablonActividadesObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.TablonActividadesController",
+    "Method": "InsertarActTablon",
+    "RelativePath": "TablonActividades/insertar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevaActTablon",
+        "Type": "EmptyRestAPI.Models.TablonActividadesObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.TablonActividadesController",
+    "Method": "Get_TablonActividades",
+    "RelativePath": "TablonActividades/obtener",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

@@ -23,7 +23,6 @@ namespace EmptyRestAPI.Controllers
 
         // POST
         [HttpPost]
-        //[Authorize]
         public IActionResult Post()
         {
             string requestId = HttpContext.TraceIdentifier;
