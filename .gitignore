@@ -1,0 +1,68 @@
+# Ignorar archivos y carpetas generales generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de configuración de IDEs
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+*.sublime-workspace
+.c9/
+
+# Ignorar carpetas específicas de compilación en AppMobil
+/AppMobil/build/
+/AppMobil/captures/
+.AppMobil/.gradle
+/AppMobil/.idea/caches/
+/AppMobil/.idea/libraries/
+/AppMobil/.idea/modules.xml
+/AppMobil/.idea/workspace.xml
+/AppMobil/.idea/navEditor.xml
+/AppMobil/.idea/assetWizardSettings.xml
+/AppMobil/.cxx
+/AppMobil/local.properties
+
+# Ignorar carpetas específicas de Node.js y Angular en AppWeb/appweb
+/AppWeb/appweb/dist/
+/AppWeb/appweb/tmp/
+/AppWeb/appweb/out-tsc/
+/AppWeb/appweb/bazel-out/
+/AppWeb/appweb/node_modules/
+/AppWeb/appweb/npm-debug.log
+/AppWeb/appweb/yarn-error.log
+
+# Ignorar configuraciones de Visual Studio Code en AppWeb/appweb
+/AppWeb/appweb/.vscode/*
+!/AppWeb/appweb/.vscode/settings.json
+!/AppWeb/appweb/.vscode/tasks.json
+!/AppWeb/appweb/.vscode/launch.json
+!/AppWeb/appweb/.vscode/extensions.json
+/AppWeb/appweb/.history/*
+
+# Ignorar archivos de cobertura y pruebas
+/AppWeb/appweb/coverage/
+/AppWeb/appweb/libpeerconnection.log
+/AppWeb/appweb/testem.log
+/AppWeb/appweb/typings/
+/AppWeb/appweb/.angular/cache
+
+# Ignorar configuraciones de Visual Studio
+.vs/
+*.slnx.sqlite
+*.suo
+*.user
+*.userosscache
+*.unsuccessfulbuild
+*.ncrunchproject
+*.ncrunchsolution
+*.builds
+
+# Ignorar archivos temporales y logs generales
+*.log
+*.tmp
+*.bak
+
+# Otros archivos temporales
+/connect.lock
