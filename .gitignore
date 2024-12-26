@@ -66,3 +66,33 @@ Thumbs.db
 
 # Otros archivos temporales
 /connect.lock
+
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.db
+
+# Build output
+bin/
+obj/
+Debug/
+Release/
+
+# Gradle
+.gradle/
+*.lock
+
+# IntelliJ/Android Studio
+.idea/
+*.iml
+
+# Otros
+*.dll
+*.pdb
+*.exe
+*.log
+*.cache
+*.bak
+

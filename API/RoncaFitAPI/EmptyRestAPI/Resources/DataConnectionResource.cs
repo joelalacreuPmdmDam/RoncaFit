@@ -9,7 +9,7 @@ namespace EmptyRestAPI.Resources
         public enum Sistemas { RoncaFit }
 
         //Cadenas de conexión para los sitemas
-        const string RoncaFitConn = "Server=192.168.56.1; Database=RoncaFit; User Id=sa; Password=1234; MultipleActiveResultSets=True;";
+        const string RoncaFitConn = "Server=192.168.68.101; Database=RoncaFit; User Id=sa; Password=1234; MultipleActiveResultSets=True;";
         //Función que devuelve la cadena de conexión para el sistema
         private static string CadenaConn(Sistemas Sistema)
         {
