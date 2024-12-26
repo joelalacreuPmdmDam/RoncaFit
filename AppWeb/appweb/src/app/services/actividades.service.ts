@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
+import { API_CONFIG } from '../../assets/data/api-config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActividadesService {
 
-  private apiUrl = 'http://192.168.56.1:5000/actividades'
+  private apiUrl = `${API_CONFIG}/actividades`;
   private token?: string
     
 

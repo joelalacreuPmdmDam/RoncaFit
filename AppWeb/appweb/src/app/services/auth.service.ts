@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, catchError, throwError } from 'rxjs';
+import { API_CONFIG } from '../../assets/data/api-config';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 export class AuthService {
 
  
-  private apiUrl = 'http://192.168.56.1:5000/auth/login';
+  private apiUrl = `${API_CONFIG}/auth/login`;
   email: string = '';
   currentUser: string = '';
   

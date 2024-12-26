@@ -4,13 +4,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { API_CONFIG } from '../../../assets/data/api-config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientesService {
 
-  private apiUrl = 'http://192.168.56.1:5000/clientes'
+  private apiUrl = `${API_CONFIG}/clientes`
   private token?: string
     
 
