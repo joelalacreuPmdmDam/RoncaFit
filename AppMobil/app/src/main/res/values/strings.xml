@@ -14,4 +14,8 @@
     <string name="calcular">CALCULAR</string>
     <string name="rmTitle">"Tu 1RM es de: "</string>
     <string name="reservar">RESERVAR</string>
+    <string name="rutinas">RUTINAS</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="limpiar">LIMPIAR</string>
+    <string name="series">SERIES</string>
 </resources>

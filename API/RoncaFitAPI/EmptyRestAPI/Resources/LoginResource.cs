@@ -7,7 +7,10 @@ namespace EmptyRestAPI.Resources
 
         public static ClienteObject? VerificarCredenciales(string mail, string contrasenya)
         {
-            string strSQL = "SELECT idCliente, dni, nombre, apellidos, mail, nombreUsuario FROM clientes WHERE mail = @mail AND contrasenya = @contrasenya";
+            string strSQL = @"SELECT idCliente, dni, nombre, apellidos, mail, nombreUsuario
+                            FROM clientes
+                            WHERE ((UPPER(mail) = UPPER(@mail) OR UPPER(nombreUsuario) = UPPER(@nombreUsuario))
+                            AND contrasenya = @contrasenya)";
             try
             {
                 using (var dbConnection = DataConnectionResource.GetConnection(DataConnectionResource.Sistemas.RoncaFit))
@@ -17,6 +20,7 @@ namespace EmptyRestAPI.Resources
                         command.CommandText = strSQL;
                         command.Parameters.AddWithValue("@mail", mail);
                         command.Parameters.AddWithValue("@contrasenya", contrasenya);
+                        command.Parameters.AddWithValue("@nombreUsuario", mail);
 
                         using (var reader = command.ExecuteReader())
                         {

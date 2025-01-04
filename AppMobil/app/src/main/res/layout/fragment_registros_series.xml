@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.CalculadoraRMFragment">
+
+    <!--
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/rm_calculator"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+-->
+
+    <!--INICIO PRIMERA FILA DE ELEMENTOS-->
+
+    <TextView
+        android:id="@+id/tv_peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="@string/peso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/restar_peso_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="-"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:cornerRadius="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/et_peso"
+        app:layout_constraintTop_toBottomOf="@+id/tv_peso" />
+
+    <EditText
+        android:id="@+id/et_peso"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_peso" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sumar_peso_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="+"
+        android:textSize="18sp"
+        app:cornerRadius="100dp"
+        app:layout_constraintStart_toEndOf="@+id/et_peso"
+        app:layout_constraintTop_toBottomOf="@+id/tv_peso" />
+
+
+    <!--FIN PRIMERA FILA DE ELEMENTOS-->
+    <!--INICIO SEGUNDA FILA DE ELEMENTOS-->
+
+    <TextView
+        android:id="@+id/tv_reps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/reps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_peso" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/restar_reps_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="-"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:cornerRadius="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/et_reps"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reps" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sumar_reps_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="+"
+        android:textSize="18sp"
+        app:cornerRadius="100dp"
+        app:layout_constraintStart_toEndOf="@+id/et_reps"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reps" />
+
+    <EditText
+        android:id="@+id/et_reps"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="0"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reps" />
+
+
+    <!--FIN SEGUNDA FILA DE ELEMENTOS-->
+    <!--INICIO TERCERA FILA DE ELEMENTOS-->
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/guardar"
+        android:backgroundTint="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_reps" />
+
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/limpiar"
+        android:backgroundTint="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_reps" />
+
+    <!--FIN TERCERA FILA DE ELEMENTOS-->
+    <!--INICIO CUARTA FILA DE ELEMENTOS-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSeries"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnClear"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    <!--FIN CUARTA FILA DE ELEMENTOS-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package es.jac.roncafit.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -101,6 +102,7 @@ class LoginFragment : Fragment() {
                 }
             } catch (e: Exception) {
                 // Manejar otros errores
+                Log.d("aaaaaaaaaaaaaaaaaaaa",e.message.toString())
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
                         requireContext(),

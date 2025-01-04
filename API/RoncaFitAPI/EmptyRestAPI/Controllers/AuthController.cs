@@ -15,6 +15,9 @@ namespace EmptyRestAPI.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginObject login)
         {
+            login.mail = login.mail != null ? login.mail : "";
+            //login.nombreUsuario = login.nombreUsuario != null ? login.nombreUsuario : "";
+            login.contrasenya = login.contrasenya != null ? login.contrasenya : "";
             var cliente = LoginResource.VerificarCredenciales(login.mail, login.contrasenya);
 
             if (cliente != null && login.audience == "RoncaFit")

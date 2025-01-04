@@ -8,6 +8,10 @@
             android:icon="@drawable/ic_home"
             android:title="@string/home_nav_string"/>
         <item
+            android:id="@+id/rutinas_nav_option"
+            android:icon="@drawable/ic_calculadora_rm"
+            android:title="@string/rutinas"/>
+        <item
             android:id="@+id/rm_calculator_nav_option"
             android:icon="@drawable/ic_calculadora_rm"
             android:title="@string/rm_calculator"/>
