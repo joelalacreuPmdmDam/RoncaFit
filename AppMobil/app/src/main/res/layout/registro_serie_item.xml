@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground">
+
+    <!--Id Serie-->
+    <TextView
+        android:id="@+id/tv_idSerie"
+        android:text="1"
+        android:textSize="30dp"
+        android:padding="8dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+    <!--Inicio mostrar kg-->
+    <TextView
+        android:id="@+id/tv_pesoSerie"
+        android:text="70"
+        android:textSize="30dp"
+        android:padding="8dp"
+        android:paddingStart="25dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/tv_pesoSerieTxt"
+        android:text="kg"
+        android:textSize="20dp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:paddingEnd="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+    <!--Fin mostrar kg-->
+
+    <!--Inicio mostrar reps-->
+    <TextView
+        android:id="@+id/tv_repeticionesSerie"
+        android:text="10"
+        android:textSize="30dp"
+        android:padding="8dp"
+        android:paddingStart="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/tv_repeticionesSerieTxt"
+        android:text="reps"
+        android:textSize="20dp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+    <!--Fin mostrar reps-->
+
+</LinearLayout>

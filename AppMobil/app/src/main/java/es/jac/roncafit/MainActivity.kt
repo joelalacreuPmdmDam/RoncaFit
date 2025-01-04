@@ -18,11 +18,17 @@ import es.jac.roncafit.databinding.ActivityMainBinding
 import es.jac.roncafit.fragments.CalculadoraRMFragment
 import es.jac.roncafit.fragments.DetalleActividadFragment
 import es.jac.roncafit.fragments.InicioFragment
+import es.jac.roncafit.fragments.ListaEjerciciosFragment
+import es.jac.roncafit.fragments.ListaRutinasFragment
 import es.jac.roncafit.fragments.QRAuthFragment
+import es.jac.roncafit.fragments.RegistrosSeriesFragment
 import es.jac.roncafit.models.actividades.ActividadKot
 import es.jac.roncafit.models.actividades.ActividadResponse
+import es.jac.roncafit.models.ejercicios.EjerciciosResponse
+import es.jac.roncafit.models.ejercicios.RutinaResponse
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,InicioFragment.InicioFragmentListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,InicioFragment.InicioFragmentListener,
+    ListaEjerciciosFragment.EjercicioFragmentListener, ListaRutinasFragment.ListaRutinasFragmentListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -99,6 +105,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 return true
             }
 
+            R.id.rutinas_nav_option -> {
+                supportFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    replace<ListaRutinasFragment>(R.id.fragmentContainerView_main)
+                    addToBackStack(null)
+                }
+                return true
+            }
+
             R.id.rm_calculator_nav_option -> {
                 supportFragmentManager.commit {
                     setReorderingAllowed(true)
@@ -130,7 +145,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             val currentFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView_main)
-            if (currentFragment !is InicioFragment) {
+            if (currentFragment !is InicioFragment && currentFragment !is RegistrosSeriesFragment && currentFragment !is ListaEjerciciosFragment) {
                 supportFragmentManager.commit {
                     setReorderingAllowed(true)
                     replace<InicioFragment>(R.id.fragmentContainerView_main)
@@ -145,6 +160,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onActividadClicked(actividad: ActividadResponse) {
         val fragment = DetalleActividadFragment.newInstance(actividad)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView_main, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun onEjercicioClicked(ejercicio: EjerciciosResponse, idRutina: Int) {
+        val fragment = RegistrosSeriesFragment.newInstance(ejercicio, idRutina)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView_main, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun onRutinaClicked(rutina: RutinaResponse) {
+        val fragment = ListaEjerciciosFragment.newInstance(rutina)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView_main, fragment)
             .addToBackStack(null)

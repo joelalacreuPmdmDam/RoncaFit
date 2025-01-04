@@ -1,12 +1,69 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\documents\\joel\\proyectos\\roncafit\\api\\roncafitapi\\emptyrestapi\\controllers\\registrosseriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|solutionrelative:emptyrestapi\\controllers\\registrosseriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\documents\\joel\\proyectos\\roncafit\\api\\roncafitapi\\emptyrestapi\\resources\\registrosseriesresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|solutionrelative:emptyrestapi\\resources\\registrosseriesresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\documents\\joel\\proyectos\\roncafit\\api\\roncafitapi\\emptyrestapi\\models\\registroseriemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|solutionrelative:emptyrestapi\\models\\registroseriemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegistrosSeriesResource.cs",
+              "DocumentMoniker": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Resources\\RegistrosSeriesResource.cs",
+              "RelativeDocumentMoniker": "EmptyRestAPI\\Resources\\RegistrosSeriesResource.cs",
+              "ToolTip": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Resources\\RegistrosSeriesResource.cs",
+              "RelativeToolTip": "EmptyRestAPI\\Resources\\RegistrosSeriesResource.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAADwv2EAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T05:43:42.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegistroSerieModel.cs",
+              "DocumentMoniker": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Models\\RegistroSerieModel.cs",
+              "RelativeDocumentMoniker": "EmptyRestAPI\\Models\\RegistroSerieModel.cs",
+              "ToolTip": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Models\\RegistroSerieModel.cs",
+              "RelativeToolTip": "EmptyRestAPI\\Models\\RegistroSerieModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T05:40:01.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegistrosSeriesController.cs",
+              "DocumentMoniker": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Controllers\\RegistrosSeriesController.cs",
+              "RelativeDocumentMoniker": "EmptyRestAPI\\Controllers\\RegistrosSeriesController.cs",
+              "ToolTip": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Controllers\\RegistrosSeriesController.cs",
+              "RelativeToolTip": "EmptyRestAPI\\Controllers\\RegistrosSeriesController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwDYAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T05:38:24.284Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

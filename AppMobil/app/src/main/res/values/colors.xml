@@ -6,4 +6,5 @@
     <color name="colorBackground">#ffffff</color>
     <color name="textColorPrimary">#000000</color>
     <color name="green">#29b61f</color>
+    <color name="red">#B61F3B</color>
 </resources>

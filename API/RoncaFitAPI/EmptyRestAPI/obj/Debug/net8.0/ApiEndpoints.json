@@ -269,6 +269,70 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EmptyRestAPI.Controllers.RegistrosSeriesController",
+    "Method": "ActualizarRegistroSerie",
+    "RelativePath": "RegistrosSeries/editar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registroSerieActualizado",
+        "Type": "EmptyRestAPI.Models.RegistroSerieObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.RegistrosSeriesController",
+    "Method": "EliminarRegistroSerie",
+    "RelativePath": "RegistrosSeries/eliminar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registroSerieEliminar",
+        "Type": "EmptyRestAPI.Models.RegistroSerieObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.RegistrosSeriesController",
+    "Method": "InsertarRegistroSerie",
+    "RelativePath": "RegistrosSeries/insertar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevoRegistroSerie",
+        "Type": "EmptyRestAPI.Models.RegistroSerieObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.RegistrosSeriesController",
+    "Method": "Get_RegistrosSeries",
+    "RelativePath": "RegistrosSeries/obtener",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registroRequest",
+        "Type": "EmptyRestAPI.Models.RegistroSerieObject",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EmptyRestAPI.Controllers.ReservasController",
     "Method": "ActualizarReserva",
     "RelativePath": "Reservas/editar",

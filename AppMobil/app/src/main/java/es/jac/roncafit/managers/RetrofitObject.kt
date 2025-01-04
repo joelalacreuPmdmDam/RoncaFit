@@ -8,7 +8,7 @@ class RetrofitObject {
     companion object{
         private var instance: Retrofit? = null
 
-        val baseUrl = "http://192.168.68.100:5000/"
+        val baseUrl = "http://192.168.68.101:5000/"
 
         fun getInstance(): Retrofit {
             synchronized(this){

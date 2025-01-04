@@ -2,8 +2,9 @@
 {
     public class LoginObject
     {
-        public string mail { get; set; }
-        public string contrasenya { get; set; }
-        public string audience { get; set; }
+        public string? mail { get; set; }
+        //public string? nombreUsuario { get; set; }
+        public string? contrasenya { get; set; }
+        public string? audience { get; set; }
     }
 }

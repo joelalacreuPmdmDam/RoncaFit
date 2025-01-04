@@ -41,5 +41,35 @@ namespace EmptyRestAPI.Resources
             }
             return Ejercicios;
         }
+
+        public static Boolean InsertarSerieEjercicio(SerieObject serie)
+        {
+            /*
+            string strSQL = @"INSERT INTO usuariosRutinas (idCliente,idRutina,idEjercicio,idSerie,peso,repeticiones,xfec) 
+                            VALUES (@idCliente,@idRutina,@idEjercicio,@idSerie,@peso,@repeticiones,GETDATE())";
+            try
+            {
+                using (var dbConnection = DataConnectionResource.GetConnection(DataConnectionResource.Sistemas.RoncaFit))
+                {
+                    using (var command = dbConnection.CreateCommand())
+                    {
+                        command.CommandText = strSQL;
+                        command.Parameters.AddWithValue("@dni", serie.dni ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@nombre", serie.nombre ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@apellidos", serie.apellidos ?? (object)DBNull.Value);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return false;
+            }
+            */
+            return false;
+        }
     }
 }
