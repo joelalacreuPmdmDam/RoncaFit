@@ -8,7 +8,7 @@ data class EjerciciosResponse(
     val idEjercicio: Int,
     val nombreEjercicio: String,
     val series: Int,
-    val repeticiones: String,
+    val reps: String,
     val descripcion: String,
     val instrucciones: String,
     val urlVideo: String

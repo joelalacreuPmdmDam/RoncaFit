@@ -18,4 +18,8 @@
     <string name="guardar">GUARDAR</string>
     <string name="limpiar">LIMPIAR</string>
     <string name="series">SERIES</string>
+    <string name="globalChat">ABRIR CHAT GLOBAL</string>
+    <string name="et_mensaje">Escriba un mensaje</string>
+    <string name="infoPersonal">INFORMACIÓN PERSONAL</string>
+    <string name="nombreUsuario">Nombre de usuario</string>
 </resources>

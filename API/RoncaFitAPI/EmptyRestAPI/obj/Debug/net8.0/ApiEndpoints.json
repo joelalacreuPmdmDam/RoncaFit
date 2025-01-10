@@ -132,6 +132,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EmptyRestAPI.Controllers.ClientesController",
+    "Method": "ActualizarPerfilCliente",
+    "RelativePath": "Clientes/perfil-editar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteActualizado",
+        "Type": "EmptyRestAPI.Models.APKClienteRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.ClientesController",
+    "Method": "GetPerfilCliente",
+    "RelativePath": "Clientes/perfil-obtener/{idCliente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idCliente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EmptyRestAPI.Controllers.EjerciciosController",
     "Method": "Get_Ejercicios",
     "RelativePath": "Ejercicios/obtener",
@@ -143,6 +175,22 @@
         "Name": "ejercicio",
         "Type": "EmptyRestAPI.Models.EjercicioObject",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.EjerciciosController",
+    "Method": "Get_EjercicioDetalle",
+    "RelativePath": "Ejercicios/obtener-detalle/{idEjercicio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEjercicio",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

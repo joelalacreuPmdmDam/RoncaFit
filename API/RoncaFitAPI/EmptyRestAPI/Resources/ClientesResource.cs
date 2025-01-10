@@ -134,5 +134,52 @@ namespace EmptyRestAPI.Resources
                 return false;
             }
         }
+
+        public static bool ActualizarPerfilCliente(APKClienteRequest cliente)
+        {
+            string strSQL = "UPDATE clientes SET nombreUsuario = @nombreUsuario, imagen = @imagen WHERE idCliente = @idCliente";
+            try
+            {
+                using (var dbConnection = DataConnectionResource.GetConnection(DataConnectionResource.Sistemas.RoncaFit))
+                {
+                    using (var command = dbConnection.CreateCommand())
+                    {
+                        command.CommandText = strSQL;
+                        command.Parameters.AddWithValue("@idCliente", cliente.idCliente);
+                        command.Parameters.AddWithValue("@nombreUsuario", cliente.nombreCliente ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@imagen", cliente.imagen ?? (object)DBNull.Value);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return false;
+            }
+        }
+
+        public static APKClienteRequest getPerfilCliente(int idCliente)
+        {
+            APKClienteRequest cliente = new APKClienteRequest();
+
+            // Obtenemos los clientes
+            string strSQL = "SELECT idCliente, dni, nombre, apellidos, mail, nombreUsuario as nombreCliente, imagen FROM clientes where idCliente = @idCliente for json path";
+            Dictionary<string, object> Parametros = new Dictionary<string, object>
+            {
+                { "@idCliente", idCliente }
+            };
+
+            string Resultado = DataConnectionResource.GetJSONQuerySQL(strSQL, Parametros, "", DataConnectionResource.Sistemas.RoncaFit);
+
+            if (!string.IsNullOrWhiteSpace(Resultado))
+            {
+                APKClienteRequest[] clientes = JsonConvert.DeserializeObject<APKClienteRequest[]>(Resultado);
+                cliente = clientes[0];
+            }
+            return cliente;
+        }
     }
 }

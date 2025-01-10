@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
+    id("kotlin-kapt")
 }
 
 android {
@@ -52,6 +54,13 @@ dependencies {
     implementation("org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0")//Carrusel de imagenes
     implementation("com.google.zxing:core:3.5.0")//Código QR
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")//Código QR
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))//Firebase
+    implementation("com.google.firebase:firebase-firestore-ktx")//Firestore
+    implementation("androidx.activity:activity-ktx:1.8.2")//CallBackFlow
+    //implementation("com.google.android.gms:play-services-base:18.5.0")
+    //implementation("androidx.activity:activity-ktx")//CallBackFlow
+    //implementation("com.google.firebase:firebase-analytics-ktx:21.2.2")
+    //implementation("com.google.firebase:firebase-crashlytics-ktx:18.3.7")
 
 
 

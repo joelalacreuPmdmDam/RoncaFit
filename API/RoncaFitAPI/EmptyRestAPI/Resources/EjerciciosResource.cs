@@ -42,34 +42,21 @@ namespace EmptyRestAPI.Resources
             return Ejercicios;
         }
 
-        public static Boolean InsertarSerieEjercicio(SerieObject serie)
+        public static EjercicioObject ObtenerEjercicioPorId(int idEjercicio)
         {
-            /*
-            string strSQL = @"INSERT INTO usuariosRutinas (idCliente,idRutina,idEjercicio,idSerie,peso,repeticiones,xfec) 
-                            VALUES (@idCliente,@idRutina,@idEjercicio,@idSerie,@peso,@repeticiones,GETDATE())";
-            try
-            {
-                using (var dbConnection = DataConnectionResource.GetConnection(DataConnectionResource.Sistemas.RoncaFit))
-                {
-                    using (var command = dbConnection.CreateCommand())
-                    {
-                        command.CommandText = strSQL;
-                        command.Parameters.AddWithValue("@dni", serie.dni ?? (object)DBNull.Value);
-                        command.Parameters.AddWithValue("@nombre", serie.nombre ?? (object)DBNull.Value);
-                        command.Parameters.AddWithValue("@apellidos", serie.apellidos ?? (object)DBNull.Value);
+            EjercicioObject Ejercicio = new EjercicioObject();
 
-                        int rowsAffected = command.ExecuteNonQuery();
-                        return rowsAffected > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
+            string strSQL = "select * from ejercicios for json path";
+            Dictionary<string, object> Parametros = new Dictionary<string, object> { };
+            string Resultado = DataConnectionResource.GetJSONQuerySQL(strSQL, Parametros, "", DataConnectionResource.Sistemas.RoncaFit);
+
+            if (!string.IsNullOrWhiteSpace(Resultado))
             {
-                Console.WriteLine($"Error: {ex.Message}");
-                return false;
+                EjercicioObject[]? Ejercicios = JsonConvert.DeserializeObject<EjercicioObject[]>(Resultado);
+                Ejercicio = Ejercicios[0];
+
             }
-            */
-            return false;
+            return Ejercicio;
         }
     }
 }

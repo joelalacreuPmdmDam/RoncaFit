@@ -50,7 +50,7 @@ class ListaEjerciciosFragment : Fragment() {
 
         // Obtener los datos del Bundle
         val rutinaPasada = arguments?.getParcelable<RutinaResponse>("rutina")
-        if (rutinaPasada != null && rutinaPasada.idRutina>0){
+        if (rutinaPasada != null && rutinaPasada.idRutina>0) {
             idRutinaPasada = rutinaPasada.idRutina
         }
 
@@ -63,13 +63,15 @@ class ListaEjerciciosFragment : Fragment() {
     private fun setUpRecyclerView() {
         listaEjerciciosCompleta = mutableListOf()
         listaEjerciciosFiltrada = mutableListOf()
-        mAdapter = EjerciciosAdapter(listaEjerciciosCompleta) { ejercicio ->
+        val onEjercicioClickedFun: (EjerciciosResponse) -> Unit = { ejercicio ->
             mListener.onEjercicioClicked(ejercicio,idRutinaPasada)
         }
-        binding.recyclerEjercicios.addItemDecoration(
-            DividerItemDecoration(requireContext(),
-                DividerItemDecoration.VERTICAL)
-        )
+
+        val onInfoClickedFun: (EjerciciosResponse) -> Unit = { ejercicio ->
+            mListener.onInfoClicked(ejercicio)
+        }
+        mAdapter = EjerciciosAdapter(listaEjerciciosCompleta,onEjercicioClickedFun,onInfoClickedFun)
+        binding.recyclerEjercicios.addItemDecoration(DividerItemDecoration(requireContext(),DividerItemDecoration.VERTICAL))
         binding.recyclerEjercicios.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.recyclerEjercicios.adapter = mAdapter
     }
@@ -138,6 +140,7 @@ class ListaEjerciciosFragment : Fragment() {
 
     interface EjercicioFragmentListener{
         fun onEjercicioClicked(ejercicio: EjerciciosResponse,idRutina: Int)
+        fun onInfoClicked(ejercicio: EjerciciosResponse)
     }
 
     companion object {

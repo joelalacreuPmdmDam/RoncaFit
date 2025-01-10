@@ -102,13 +102,8 @@ class LoginFragment : Fragment() {
                 }
             } catch (e: Exception) {
                 // Manejar otros errores
-                Log.d("aaaaaaaaaaaaaaaaaaaa",e.message.toString())
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Ocurrió un error: ${e.localizedMessage}",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(requireContext(),"Ocurrió un error: ${e.localizedMessage}",Toast.LENGTH_LONG).show()
                 }
             }
         }

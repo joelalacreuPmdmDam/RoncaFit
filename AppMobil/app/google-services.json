@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "802179405053",
+    "firebase_url": "https://roncafit-default-rtdb.firebaseio.com",
+    "project_id": "roncafit",
+    "storage_bucket": "roncafit.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802179405053:android:fb6b4886888a30f3335a94",
+        "android_client_info": {
+          "package_name": "es.jac.roncafit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHwHyNRGGfu8mSC9K3CYx_nyZ1biOPe60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
