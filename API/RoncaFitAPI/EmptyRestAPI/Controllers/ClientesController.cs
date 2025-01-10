@@ -3,6 +3,7 @@ using EmptyRestAPI.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using MySqlX.XDevAPI;
 
 namespace EmptyRestAPI.Controllers
 {
@@ -95,6 +96,57 @@ namespace EmptyRestAPI.Controllers
                 return StatusCode(500, "Error al eliminar el cliente.");
             }
         }
+
+        [HttpPost("perfil-editar")] //Solo se llama desde la APK
+        public ActionResult ActualizarPerfilCliente([FromBody] APKClienteRequest clienteActualizado)
+        {
+            if (clienteActualizado == null || String.IsNullOrEmpty(clienteActualizado.nombreCliente) || clienteActualizado.idCliente == null)
+            {
+                return BadRequest("Datos de cliente inválidos.");
+            }
+
+            bool resultado = ClientesResource.ActualizarPerfilCliente(clienteActualizado);
+            if (resultado)
+            {
+                return Ok("Perfil del cliente actualizado correctamente");
+            }
+            else
+            {
+                return StatusCode(500, "Error al actualizar el perfil del cliente.");
+            }
+        }
+
+        [HttpGet("perfil-obtener/{idCliente}")]
+        public IActionResult GetPerfilCliente([FromRoute] int idCliente)
+        {
+            string requestId = HttpContext.TraceIdentifier;
+            string Process = "GetPerfilCliente";
+            try
+            {
+                LoggerResource.Info(requestId, Process);
+
+                // Obtenemos las ocupaciones
+                if (idCliente == null)
+                {
+                    return BadRequest("Debes pasar el idCliente");
+                }
+                APKClienteRequest? Cliente = ClientesResource.getPerfilCliente(idCliente);
+
+                if (Cliente.idCliente == null)
+                {
+                    return NotFound("Cliente no encontrado.");
+                }
+                return Ok(Cliente);
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones no previstas
+                LoggerResource.Error(requestId, Process, ex.Message);
+                return BadRequest(new BadRequestObject() { Mensaje = ex.Message });
+            }
+        }
+
+
 
     }
 }

@@ -21,8 +21,8 @@
             android:title="@string/chat"/>
         <item
             android:id="@+id/settings_nav_option"
-            android:icon="@drawable/ic_ajustes"
-            android:title="@string/settings"/>
+            android:icon="@drawable/ic_personal_info"
+            android:title="@string/infoPersonal"/>
 
     </group>
 </menu>

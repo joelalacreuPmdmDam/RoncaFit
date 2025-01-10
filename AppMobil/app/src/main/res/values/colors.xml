@@ -7,4 +7,6 @@
     <color name="textColorPrimary">#000000</color>
     <color name="green">#29b61f</color>
     <color name="red">#B61F3B</color>
+    <color name="gris">#F5F5F5</color><!--Color mensajes resto usuarios-->
+    <color name="azul">#5387fa</color><!--Color mensajes usuario regisrado-->
 </resources>

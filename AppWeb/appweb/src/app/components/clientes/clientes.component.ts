@@ -34,6 +34,7 @@ export class ClientesComponent {
   loadingInfo: boolean = true;
   //END GESTIÓN PERMISOS
   listaClientes: any = [];
+  listaClientesFirebase: any;
   //INICIO ATRIBUTOS FILTROS
   valorFiltroGlobal: string = '';
   //FIN ATRIBUTOS FILTROS
@@ -61,6 +62,7 @@ export class ClientesComponent {
     this.totalRequests = 1;
     this.completedRequests = 0;
     this.getClientes();
+    this.getClientesFirebase();
   }
 
   //INICIO GESTIÓN PERMISOS
@@ -71,15 +73,26 @@ export class ClientesComponent {
     }
   }
 
-  getClientes(){
+  async getClientes() {
     this.loadingInfo = true;
-    this._clientesService.getClientes().subscribe(
+    try {
+      const data = await this._clientesService.getClientes().toPromise();
+      this.listaClientes = data.clientes;
+      this.checkRequestsCompleted();
+    } catch (error) {
+      console.error('Error al obtener los clientes:', error);
+    }
+  }
+  
+  getClientesFirebase(){
+    this.loadingInfo = true;
+    this._clientesService.getClientesFirebase().subscribe(
       (data) => {
-        this.listaClientes = data.clientes;
+        this.listaClientesFirebase = data;
         this.checkRequestsCompleted();
       },
       (error) => {
-        console.error('Error al obtener los clientes:', error);
+        console.error('Error al obtener los clientes desde el Firebase:', error);
       }
     );
   }
@@ -99,12 +112,27 @@ export class ClientesComponent {
         this.totalRequests = 1;
         this.completedRequests = 0;
         this.getClientes();
+        this.actualizarClienteFirebase(this.usuarioEditado);
         this.closeEditDialog();
       },
       (error) => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo actualizar el cliente', life: 3000 });
       }
     );
+  }
+
+  actualizarClienteFirebase(usuarioEditado: any){
+    var idDocumento = this.buscarIdFirebasePorIdCliente(usuarioEditado.idCliente);
+    if (idDocumento !== undefined){
+      this._clientesService.updateClienteFirebase(idDocumento, {idCliente: usuarioEditado.idCliente, nombreCliente: usuarioEditado.nombreUsuario}).then(() => {
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Cliente actualizado en firebase correctamente', life: 3000 });
+        this.showEditarUsuarioDialog = false;
+      }).catch((error) => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo actualizar el cliente en firebase', life: 3000 });
+      });
+    }else{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'El ID del documento firebase es \'undefined\'', life: 3000 });
+    }    
   }
 
 
@@ -131,20 +159,36 @@ export class ClientesComponent {
     this.insertarCliente(newCliente);
   }
 
-  insertarCliente(newCliente: any){
-    this._clientesService.insertarCliente(newCliente).subscribe(
-      (response) => {
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Cliente insertado correctamente', life: 3000 });
-        this.totalRequests = 1;
-        this.completedRequests = 0;
-        this.getClientes();
-        this.closeCrearDialog();
-        this.formGroup.reset();
-      },
-      (error) => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo insertar el cliente', life: 3000 });
-      }
-    );
+  async insertarCliente(newCliente: any) {
+    var copiaCliente = { ...newCliente };  
+    try {
+      await this._clientesService.insertarCliente(newCliente).toPromise();
+      this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Cliente insertado correctamente', life: 3000 });  
+      this.totalRequests = 2;
+      this.completedRequests = 0;
+      await this.getClientes();
+      this.insertarClienteFirebase(copiaCliente);
+      this.getClientesFirebase();  
+      this.closeCrearDialog();
+      this.formGroup.reset();
+    } catch (error) {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo insertar el cliente', life: 3000 });
+    }
+  }
+  
+
+  insertarClienteFirebase(newCliente: any){
+    var idCliente = this.buscarIdClientePorAtributos(newCliente);
+    if (idCliente !== undefined){
+      this._clientesService.addClienteFirebase({idCliente: idCliente, nombreCliente: newCliente.nombreUsuario}).then(() => {
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Cliente insertado en firebase correctamente', life: 3000 });
+        this.showEditarUsuarioDialog = false;
+      }).catch((error) => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo insertar el cliente en firebase', life: 3000 });
+      });
+    }else{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'El ID del documento firebase es \'undefined\'', life: 3000 });
+    }       
   }
 
   closeCrearDialog(){
@@ -169,14 +213,29 @@ export class ClientesComponent {
     this._clientesService.eliminarCliente({idCliente: idCliente}).subscribe(
         (response) => {
           this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Cliente eliminado correctamente', life: 3000 });
-          this.totalRequests = 1;
+          this.totalRequests = 2;
           this.completedRequests = 0;
           this.getClientes();
+          this.eliminarClienteFirebase(idCliente);
+          this.getClientesFirebase();
         },
         (error) => {
           this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo eliminar al cliente', life: 3000 });
         }
       );
+  }
+
+  eliminarClienteFirebase(idCliente: number){
+    var idDocumento = this.buscarIdFirebasePorIdCliente(idCliente);
+    if (idDocumento !== undefined){
+      this._clientesService.deleteClienteFirebase(idDocumento).then(() => {
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Cliente eliminado en firebase correctamente', life: 3000 });
+      }).catch((error) => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo eliminar el cliente en firebase', life: 3000 });
+      });
+    }else{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'El ID del documento firebase es \'undefined\'', life: 3000 });
+    }    
   }
   //FIN MÉTODOS ELIMINAR CLIENTE
 
@@ -196,5 +255,23 @@ export class ClientesComponent {
     this.getClientes();
     this.valorFiltroGlobal = '';
   }
+
+  buscarIdFirebasePorIdCliente(idCliente: number): string | undefined {
+    const clienteEncontrado = this.listaClientesFirebase.find((cliente: any) => cliente.idCliente === idCliente);  
+    if (clienteEncontrado) {
+      return clienteEncontrado.id;
+    }
+    return undefined;
+  }
+
+  buscarIdClientePorAtributos(newCliente: any): number | undefined {
+    const clienteEncontrado = this.listaClientes.find((cliente: any) => cliente.mail === newCliente.mail && cliente.dni === newCliente.dni 
+    && cliente.nombre === newCliente.nombre && cliente.apellidos === newCliente.apellidos && cliente.nombreUsuario === newCliente.nombreUsuario);
+    if (clienteEncontrado) {
+      return clienteEncontrado.idCliente;
+    }
+    return undefined;
+  }
+  
   
 }

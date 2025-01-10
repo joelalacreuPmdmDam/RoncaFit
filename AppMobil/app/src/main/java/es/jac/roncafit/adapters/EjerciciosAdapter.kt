@@ -3,6 +3,7 @@ package es.jac.roncafit.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import es.jac.roncafit.R
@@ -11,7 +12,8 @@ import es.jac.roncafit.models.ejercicios.EjerciciosResponse
 
 class EjerciciosAdapter(
     private var ejerciciosList: MutableList<EjerciciosResponse>,
-    private val onItemClickListener: (EjerciciosResponse) -> Unit
+    private val onItemClickListener: (EjerciciosResponse) -> Unit,
+    private val onInfoClickListener: (EjerciciosResponse) -> Unit
 ) : RecyclerView.Adapter<EjerciciosAdapter.EjerciciosViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EjerciciosViewHolder {
@@ -27,11 +29,12 @@ class EjerciciosAdapter(
         holder.itemView.setOnClickListener {
             onItemClickListener(item)
         }
+        holder.itemView.findViewById<ImageButton>(R.id.btn_info_exercise).setOnClickListener {
+            onInfoClickListener(item)
+        }
     }
 
     fun updateData(newEjerciciosList: List<EjerciciosResponse>) {
-        //ejerciciosList.clear()
-        //ejerciciosList.addAll(newEjerciciosList)
         ejerciciosList = newEjerciciosList.toMutableList()
         notifyDataSetChanged()
     }
