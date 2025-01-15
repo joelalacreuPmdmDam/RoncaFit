@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj": {}
+    "C:\\Users\\joela\\Desktop\\RONCAFIT\\RoncaFit\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj": {
+    "C:\\Users\\joela\\Desktop\\RONCAFIT\\RoncaFit\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj",
+        "projectUniqueName": "C:\\Users\\joela\\Desktop\\RONCAFIT\\RoncaFit\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj",
         "projectName": "EmptyRestAPI",
-        "projectPath": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj",
+        "projectPath": "C:\\Users\\joela\\Desktop\\RONCAFIT\\RoncaFit\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj",
         "packagesPath": "C:\\Users\\joela\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\obj\\",
+        "outputPath": "C:\\Users\\joela\\Desktop\\RONCAFIT\\RoncaFit\\API\\RoncaFitAPI\\EmptyRestAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

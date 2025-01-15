@@ -44,7 +44,8 @@ class FirestoreChatManager {
                                 MensajeFlow(
                                     idRemitente = it.get(MENSAJE_REMITENTE).toString().toInt(),
                                     mensaje = it.get(MENSAJE_CONTENT).toString(),
-                                    infoRemitente = it.get(MENSAJE_INFO_REMITENTE).toString()
+                                    infoRemitente = it.get(MENSAJE_INFO_REMITENTE).toString(),
+                                    createdData = it.getTimestamp(CREATED_DATA)?.toDate()
                                 )
                             )
                         }

@@ -3,16 +3,20 @@ package es.jac.roncafit
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.navigation.NavigationView
 import es.jac.roncafit.databinding.ActivityMainBinding
 import es.jac.roncafit.fragments.CalculadoraRMFragment
@@ -26,11 +30,16 @@ import es.jac.roncafit.fragments.ListaEjerciciosFragment
 import es.jac.roncafit.fragments.ListaRutinasFragment
 import es.jac.roncafit.fragments.QRAuthFragment
 import es.jac.roncafit.fragments.RegistrosSeriesFragment
+import es.jac.roncafit.managers.RetrofitObject
 import es.jac.roncafit.models.actividades.ActividadKot
 import es.jac.roncafit.models.actividades.ActividadResponse
 import es.jac.roncafit.models.ejercicios.EjerciciosResponse
 import es.jac.roncafit.models.ejercicios.RutinaResponse
 import es.jac.roncafit.models.usuarios.ClienteResponse
+import es.jac.roncafit.services.usuarios.ClientesService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,InicioFragment.InicioFragmentListener,
     ListaEjerciciosFragment.EjercicioFragmentListener, ListaRutinasFragment.ListaRutinasFragmentListener, ClientesChatFragment.ClientesChatFragmentListener,
@@ -60,7 +69,35 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //Acceder al txt del header que contiene el idUsuario
         val txtEmailHeader = headerNavigationView.findViewById<TextView>(R.id.nav_myId)
         txtEmailHeader.text = userId.toString()
+        obtenerPerfil(userId);
+    }
 
+    private fun obtenerPerfil(idCliente: Int) {
+        val sharedPreferences = this.getSharedPreferences("es.jac.roncafit_preferences", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("auth_token", null)
+
+        if (token == null) {
+            Toast.makeText(this, "Token no disponible", Toast.LENGTH_SHORT).show()
+            return
+        }
+        val apiService = RetrofitObject.getInstance().create(ClientesService::class.java)
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                val perfilCliente = apiService.obtenerPerfil("Bearer $token", idCliente)
+                withContext(Dispatchers.Main) {
+                    val headerNavigationView = binding.navigationView.getHeaderView(0)
+                    val imgUsuario = headerNavigationView.findViewById<ImageView>(R.id.image_header)
+                    val decodedString = Base64.decode(perfilCliente.imagen, Base64.DEFAULT)
+                    val bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+                    imgUsuario.setImageBitmap(bitmap)
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@MainActivity, "Error en la solicitud: ${e.message}", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        }
     }
 
 
