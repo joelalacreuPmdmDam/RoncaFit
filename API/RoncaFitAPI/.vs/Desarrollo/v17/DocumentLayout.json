@@ -1,30 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\joela\\Desktop\\RONCAFIT\\RoncaFit\\API\\RoncaFitAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\documents\\joel\\proyectos\\roncafit\\api\\roncafitapi\\emptyrestapi\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\desktop\\roncafit\\roncafit\\api\\roncafitapi\\emptyrestapi\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|solutionrelative:emptyrestapi\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\documents\\joel\\proyectos\\roncafit\\api\\roncafitapi\\emptyrestapi\\resources\\clientesresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|solutionrelative:emptyrestapi\\resources\\clientesresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\documents\\joel\\proyectos\\roncafit\\api\\roncafitapi\\emptyrestapi\\models\\clientemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|solutionrelative:emptyrestapi\\models\\clientemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\documents\\joel\\proyectos\\roncafit\\api\\roncafitapi\\emptyrestapi\\models\\ejerciciomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|solutionrelative:emptyrestapi\\models\\ejerciciomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\documents\\joel\\proyectos\\roncafit\\api\\roncafitapi\\emptyrestapi\\controllers\\ejercicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|solutionrelative:emptyrestapi\\controllers\\ejercicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|c:\\users\\joela\\documents\\joel\\proyectos\\roncafit\\api\\roncafitapi\\emptyrestapi\\resources\\ejerciciosresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DC71946-5E0D-43B0-942A-C1A330DF2438}|EmptyRestAPI\\EmptyRestAPI.csproj|solutionrelative:emptyrestapi\\resources\\ejerciciosresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,79 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EjercicioModel.cs",
-              "DocumentMoniker": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Models\\EjercicioModel.cs",
-              "RelativeDocumentMoniker": "EmptyRestAPI\\Models\\EjercicioModel.cs",
-              "ToolTip": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Models\\EjercicioModel.cs",
-              "RelativeToolTip": "EmptyRestAPI\\Models\\EjercicioModel.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T15:09:33.23Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EjerciciosController.cs",
-              "DocumentMoniker": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Controllers\\EjerciciosController.cs",
-              "RelativeDocumentMoniker": "EmptyRestAPI\\Controllers\\EjerciciosController.cs",
-              "ToolTip": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Controllers\\EjerciciosController.cs",
-              "RelativeToolTip": "EmptyRestAPI\\Controllers\\EjerciciosController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAADwv0oAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T15:06:16.733Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EjerciciosResource.cs",
-              "DocumentMoniker": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Resources\\EjerciciosResource.cs",
-              "RelativeDocumentMoniker": "EmptyRestAPI\\Resources\\EjerciciosResource.cs",
-              "ToolTip": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Resources\\EjerciciosResource.cs",
-              "RelativeToolTip": "EmptyRestAPI\\Resources\\EjerciciosResource.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T14:54:36.314Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClienteModel.cs",
-              "DocumentMoniker": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Models\\ClienteModel.cs",
-              "RelativeDocumentMoniker": "EmptyRestAPI\\Models\\ClienteModel.cs",
-              "ToolTip": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Models\\ClienteModel.cs",
-              "RelativeToolTip": "EmptyRestAPI\\Models\\ClienteModel.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T13:46:09.861Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClientesResource.cs",
-              "DocumentMoniker": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Resources\\ClientesResource.cs",
-              "RelativeDocumentMoniker": "EmptyRestAPI\\Resources\\ClientesResource.cs",
-              "ToolTip": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Resources\\ClientesResource.cs",
-              "RelativeToolTip": "EmptyRestAPI\\Resources\\ClientesResource.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAA4wLIAAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T08:09:36.438Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ClientesController.cs",
-              "DocumentMoniker": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Controllers\\ClientesController.cs",
+              "DocumentMoniker": "C:\\Users\\joela\\Desktop\\RONCAFIT\\RoncaFit\\API\\RoncaFitAPI\\EmptyRestAPI\\Controllers\\ClientesController.cs",
               "RelativeDocumentMoniker": "EmptyRestAPI\\Controllers\\ClientesController.cs",
-              "ToolTip": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\Controllers\\ClientesController.cs",
+              "ToolTip": "C:\\Users\\joela\\Desktop\\RONCAFIT\\RoncaFit\\API\\RoncaFitAPI\\EmptyRestAPI\\Controllers\\ClientesController.cs",
               "RelativeToolTip": "EmptyRestAPI\\Controllers\\ClientesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIQAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T08:04:24.462Z",
+              "WhenOpened": "2025-01-13T15:45:02.984Z",
               "EditorCaption": ""
             }
           ]

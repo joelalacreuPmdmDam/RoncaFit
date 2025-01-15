@@ -2,13 +2,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="2dp">
+    android:padding="2dp"
+    android:orientation="vertical">
+
+    <!-- Contenedor de imagen y nombre -->
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginEnd="8dp">
+
+        <ImageView
+            android:id="@+id/img_chat"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_foto_perfil_chat"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="10dp" />
+
+        <TextView
+            android:id="@+id/tvRemitente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Joel Alacreu"
+            android:layout_toEndOf="@id/img_chat"
+            android:layout_marginStart="3dp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <!-- Card del mensaje -->
     <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cardView_mensaje"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -18,30 +51,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:inputType="textMultiLine|textImeMultiLine"
+            android:textColor="@color/black"
+            android:nestedScrollingEnabled="false"
+            android:singleLine="true"
+            android:text="A qué hora vamos hoy?"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/tvRemitente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Joel Alacreu"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/tvContent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine|textImeMultiLine"
-                android:textColor="@color/black"
-                android:nestedScrollingEnabled="false"
-                android:singleLine="true"
-                android:text="A qué hora vamos hoy?"
-                android:textSize="14sp" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.cardview.widget.CardView>
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tv_createdData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine|textImeMultiLine"
+            android:textColor="@color/black"
+            android:nestedScrollingEnabled="false"
+            android:singleLine="true"
+            android:gravity="end"
+            android:text="2025-01-15 18:38:23"
+            android:textSize="10sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>
+    </RelativeLayout>

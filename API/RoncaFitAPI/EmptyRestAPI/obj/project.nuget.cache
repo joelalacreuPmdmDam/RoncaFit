@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TvYG3eDvpOY=",
+  "dgSpecHash": "Fg+2K+kI3aY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\joela\\Documents\\JOEL\\PROYECTOS\\RONCAFIT\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj",
+  "projectFilePath": "C:\\Users\\joela\\Desktop\\RONCAFIT\\RoncaFit\\API\\RoncaFitAPI\\EmptyRestAPI\\EmptyRestAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joela\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\joela\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",

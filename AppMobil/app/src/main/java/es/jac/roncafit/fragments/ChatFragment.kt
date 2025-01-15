@@ -54,7 +54,10 @@ class ChatFragment : Fragment() {
         }
 
         binding.toolbarChat.setOnClickListener {
-            mListener.onToolbarClicked(clientePasado.idCliente?: idCliente)
+            if (!binding.tvNombreChat.text.equals("CHAT GLOBAL")){
+                mListener.onToolbarClicked(clientePasado.idCliente?: idCliente)
+            }
+
         }
 
         // Obtener los datos del Bundle
