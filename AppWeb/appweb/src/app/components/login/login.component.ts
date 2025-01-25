@@ -27,7 +27,7 @@ export class LoginComponent {
   }
   
   login(): void {
-    if (this.formGroup.valid) {
+    if (this.formGroup.valid && (this.formGroup.value.email == 'jalacreu@improlog.com' || this.formGroup.value.email.toUpperCase() == 'JALACREU')) {
       this._authService.login(this.formGroup.value.email, this.formGroup.value.password).subscribe(
         (response) => {
           if (response.token) {
@@ -44,6 +44,8 @@ export class LoginComponent {
           alert('Ha ocurrido un error al intentar iniciar sesión');
         }
       );
+    }else{
+      alert('Este usuario no tiene permiso para entrar acceder al sistema');
     }
   }
 

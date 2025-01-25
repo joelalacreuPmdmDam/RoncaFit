@@ -103,7 +103,7 @@
     </p-table>
 </div>
 
-<p-dialog header="Nuevo usuario" [(visible)]="showCrearUsuarioDialog" [modal]="true" [style]="{ width: '40vw', height: '19vw' }" [draggable]="true" [resizable]="false">
+<p-dialog header="Nuevo cliente" [(visible)]="showCrearUsuarioDialog" [modal]="true" [style]="{ width: '40vw', height: '19vw' }" [draggable]="true" [resizable]="false">
     <form [formGroup]="formGroup" (ngSubmit)="crearCliente()">
         <div class="grid p-fluid formConainer" style="margin-top: 1.5rem; display: flex;">
             <p-floatLabel>
@@ -145,12 +145,12 @@
     </form>
 </p-dialog>
 
-<p-dialog header="Editar usuario" [(visible)]="showEditarUsuarioDialog" [modal]="true" [style]="{ width: '40vw', height: '16vw' }" [draggable]="true" [resizable]="false">
+<p-dialog header="Editar cliente" [(visible)]="showEditarUsuarioDialog" [modal]="true" [style]="{ width: '40vw', height: '16vw' }" [draggable]="true" [resizable]="false">
         <div class="grid p-fluid formConainer" style="margin-top: 1.5rem; display: flex;">
-            <p-floatLabel>
+            <!--<p-floatLabel>
                 <input pInputText id="dni" [(ngModel)]="usuarioEditado.dni" />
                 <label for="dni">DNI</label>
-            </p-floatLabel>
+            </p-floatLabel>-->
             <p-floatLabel>
                 <input pInputText id="nombre" [(ngModel)]="usuarioEditado.nombre" />
                 <label for="nombre">Nombre</label>

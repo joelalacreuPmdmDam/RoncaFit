@@ -97,8 +97,6 @@ export class ClientesComponent {
     );
   }
 
-
-
   //INICIO MÉTODOS EDITAR USUARIO
   openEditDialog(usuarioSeleccionado: any){
     this.showEditarUsuarioDialog = true;
@@ -106,19 +104,24 @@ export class ClientesComponent {
   }
 
   actualizarCliente(){
-    this._clientesService.actualizarCliente(this.usuarioEditado).subscribe(
-      (response) => {
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Cliente actualizado correctamente', life: 3000 });
-        this.totalRequests = 1;
-        this.completedRequests = 0;
-        this.getClientes();
-        this.actualizarClienteFirebase(this.usuarioEditado);
-        this.closeEditDialog();
-      },
-      (error) => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo actualizar el cliente', life: 3000 });
-      }
-    );
+    if(this.mailValido(this.usuarioEditado.mail)){
+      this._clientesService.actualizarCliente(this.usuarioEditado).subscribe(
+        (response) => {
+          this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Cliente actualizado correctamente', life: 3000 });
+          this.totalRequests = 1;
+          this.completedRequests = 0;
+          this.getClientes();
+          this.actualizarClienteFirebase(this.usuarioEditado);
+          this.closeEditDialog();
+        },
+        (error) => {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo actualizar el cliente', life: 3000 });
+        }
+      );
+    }else{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'El MAIL de este cliente no es válido.', life: 3000 });
+    }
+    
   }
 
   actualizarClienteFirebase(usuarioEditado: any){
@@ -140,7 +143,9 @@ export class ClientesComponent {
     this.showEditarUsuarioDialog = false;
     this.usuarioEditado = {};
   }
+  
   //FIN MÉTODOS EDITAR USUARIO
+
 
   //INICIO MÉTODOS CREAR USUARIO
   openCrearClienteDialog(){
@@ -156,7 +161,12 @@ export class ClientesComponent {
       nombreUsuario: this.formGroup.value.fbUsername,
       contrasenya: this.formGroup.value.fbContrasenya
     };
-    this.insertarCliente(newCliente);
+    if(this.dniValido(this.formGroup.value.fbDni) && this.mailValido(this.formGroup.value.fbMail)){
+      this.insertarCliente(newCliente);
+    }else{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'El DNI o MAIL de este cliente no es válido.', life: 3000 });
+    }
+    
   }
 
   async insertarCliente(newCliente: any) {
@@ -194,6 +204,28 @@ export class ClientesComponent {
   closeCrearDialog(){
     this.showCrearUsuarioDialog = false;
   }
+
+  dniValido(dni: string): boolean {
+    const dniLetters = 'TRWAGMYFPDXBNJZSQVHLCKE';  
+    if (!dni) return false;
+    dni = dni.trim().toUpperCase();
+    const dniRegex = /^[0-9]{8}[A-Z]$/;
+    if (!dniRegex.test(dni)) return false;
+    const numbers = parseInt(dni.slice(0, 8), 10);
+    const letter = dni.slice(8);
+    const correctLetter = dniLetters[numbers % 23];
+    return correctLetter === letter;
+  }
+
+  mailValido(email: string): boolean {
+    if (!email){
+      return false;
+    }
+    email = email.trim();
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email); //La funcion test comprueba que la cadena email tenga el mismo formato que emailRegex
+  }
+  
   //FIN MÉTODOS CREAR USUARIO
 
   //INICIO MÉTODOS ELIMINAR USUARIO

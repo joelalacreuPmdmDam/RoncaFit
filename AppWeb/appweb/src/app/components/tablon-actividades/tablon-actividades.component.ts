@@ -153,14 +153,6 @@ export class TablonActividadesComponent {
   //FIN MÉTODOS GET INFO
 
   formatearFechaFormulario(){//MÉTODO PARA FORMATEAR AL FORMATO ACEPTADO POR LA BDA
-    /*
-    const fechaSeleccionada = this.formGroup.value.fbFecha;
-    const fechaISO8601 = new Date(fechaSeleccionada).toISOString(); // Convierte la fecha local a formato ISO 8601
-    const fecha = new Date(fechaISO8601);
-    fecha.setHours(fecha.getHours() + 1);
-    fecha.setSeconds(0);
-    return fecha
-    */
     const fechaSeleccionada = this.formGroup.value.fbFecha;
     const fecha = new Date(fechaSeleccionada);
     fecha.setSeconds(0);
@@ -246,7 +238,7 @@ export class TablonActividadesComponent {
   deleteTablonActDialog(actTablon: any){
     this.confirmationService.confirm({
         message: `Vas a eliminar la actividad ${actTablon.actividad} con fecha -> ${this.datePipe.transform(actTablon.fecha,'dd/MM/yy HH:mm:ss')} y ID -> ${actTablon.id}. Quieres continuar?`,
-        header: 'Eliminar cliente',
+        header: 'Eliminar actividad del tablon',
         icon: 'pi pi-exclamation-triangle',
         acceptLabel: 'Sí',
         accept: () => {
