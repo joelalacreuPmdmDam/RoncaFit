@@ -131,7 +131,6 @@ namespace EmptyRestAPI.Resources
             }
         }
 
-
         public static bool PuedeReservar(int idCliente, int idActividadTablon)
         {
             string strSQL = "SELECT dbo.permitirReserva(@idCliente, @idActividadTablon) AS PermitirReserva";
@@ -159,6 +158,65 @@ namespace EmptyRestAPI.Resources
                 Console.WriteLine($"Error: {ex.Message}");
             }
             return false; // Si ocurre un error o no se puede comprobar, no permitimos la reserva
+        }
+
+        public static TablonActividadesObject[]? ObtenerReservasCliente(int idCliente)
+        {
+            List<TablonActividadesObject> tablonActividades = new List<TablonActividadesObject>();
+
+            string strSQL = @"select ta.id,ta.idActividad,a.actividad,ta.fecha,ta.completa,ta.inscripciones,a.limite,ta.idInstructor,CONCAT(e.nombre, ' ', e.apellidos) as instructor,r.idReserva
+                            from tablonActividades ta
+                            inner join empleados e on e.idEmpleado = ta.idInstructor
+                            inner join actividades a on a.idActividad = ta.idActividad
+							inner join reservas r on r.idActividadTablon=ta.id and r.idCliente = @idCliente
+                            where fecha> GETDATE()
+                            order by tA.fecha asc
+            ";
+            Dictionary<string, object> Parametros = new Dictionary<string, object>
+            {
+                { "@idCliente", idCliente }
+            };
+
+            try
+            {
+                using (var dbConnection = DataConnectionResource.GetConnection(DataConnectionResource.Sistemas.RoncaFit))
+                {
+                    using (var command = dbConnection.CreateCommand())
+                    {
+                        command.CommandText = strSQL;
+                        foreach (var parametro in Parametros)
+                        {
+                            command.Parameters.AddWithValue(parametro.Key, parametro.Value ?? DBNull.Value);
+                        }
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                TablonActividadesObject actividadTablon = new TablonActividadesObject
+                                {
+                                    id = reader.GetInt32(reader.GetOrdinal("id")),
+                                    idActividad = reader.GetInt32(reader.GetOrdinal("idActividad")),
+                                    actividad = reader.GetString(reader.GetOrdinal("actividad")),
+                                    completa = reader.GetBoolean(reader.GetOrdinal("completa")),
+                                    fecha = reader.GetDateTime(reader.GetOrdinal("fecha")),
+                                    inscripciones = reader.GetInt32(reader.GetOrdinal("inscripciones")),
+                                    limite = reader.GetInt32(reader.GetOrdinal("limite")),
+                                    idEmpleado = reader.GetInt32(reader.GetOrdinal("idInstructor")),
+                                    instructor = reader.GetString(reader.GetOrdinal("instructor")),
+                                    idReserva = reader.GetInt32(reader.GetOrdinal("idReserva")),
+                                };
+                                tablonActividades.Add(actividadTablon);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return tablonActividades.ToArray();
         }
 
     }

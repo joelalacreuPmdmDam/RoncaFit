@@ -14,5 +14,6 @@ data class ActividadResponse(
     val inscripciones: Int,
     val limite: Int,
     val idEmpleado: Int,
-    val instructor: String
+    val instructor: String,
+    val idReserva: Int
 ) : Parcelable

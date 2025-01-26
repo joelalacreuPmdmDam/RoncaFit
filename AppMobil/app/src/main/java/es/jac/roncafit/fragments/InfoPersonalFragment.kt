@@ -104,7 +104,12 @@ class InfoPersonalFragment : Fragment() {
         binding.titUser.setText(cliente.nombreCliente)
         if (!cliente.imagen.isNullOrEmpty()){
             setBase64ToImageView(cliente.imagen)
-            binding.btnClear.visibility = View.VISIBLE
+            imgBase64 = cliente.imagen
+            if (cliente.idCliente == idCliente){
+                binding.btnClear.visibility = View.VISIBLE
+            }else{
+                binding.btnClear.visibility = View.INVISIBLE
+            }
         }else{
             binding.btnClear.visibility = View.INVISIBLE
         }
@@ -134,7 +139,9 @@ class InfoPersonalFragment : Fragment() {
     fun updateName(nombreUsuario: String, imgBase64: String) {
         val sharedPreferences = requireContext().getSharedPreferences("es.jac.roncafit_preferences", Context.MODE_PRIVATE)
         val idCliente = sharedPreferences.getInt("auth_idCliente", 0)
+
         val cliente = Cliente(idCliente = idCliente, nombreCliente = nombreUsuario, imagen = imgBase64)
+
 
         val token = sharedPreferences.getString("auth_token", null)
         if (token == null) {

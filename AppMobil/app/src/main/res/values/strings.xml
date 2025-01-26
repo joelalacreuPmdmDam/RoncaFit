@@ -22,4 +22,6 @@
     <string name="et_mensaje">Escriba un mensaje</string>
     <string name="infoPersonal">INFORMACIÓN PERSONAL</string>
     <string name="nombreUsuario">Nombre de usuario</string>
+    <string name="alertas">AVISOS</string>
+    <string name="mis_reservas">MIS RESERVAS</string>
 </resources>

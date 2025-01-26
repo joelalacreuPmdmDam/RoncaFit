@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
@@ -19,6 +20,7 @@ import androidx.fragment.app.replace
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.navigation.NavigationView
 import es.jac.roncafit.databinding.ActivityMainBinding
+import es.jac.roncafit.fragments.AlertasFragment
 import es.jac.roncafit.fragments.CalculadoraRMFragment
 import es.jac.roncafit.fragments.ChatFragment
 import es.jac.roncafit.fragments.ClientesChatFragment
@@ -30,6 +32,7 @@ import es.jac.roncafit.fragments.ListaEjerciciosFragment
 import es.jac.roncafit.fragments.ListaRutinasFragment
 import es.jac.roncafit.fragments.QRAuthFragment
 import es.jac.roncafit.fragments.RegistrosSeriesFragment
+import es.jac.roncafit.fragments.ReservasFragment
 import es.jac.roncafit.managers.RetrofitObject
 import es.jac.roncafit.models.actividades.ActividadKot
 import es.jac.roncafit.models.actividades.ActividadResponse
@@ -43,7 +46,7 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,InicioFragment.InicioFragmentListener,
     ListaEjerciciosFragment.EjercicioFragmentListener, ListaRutinasFragment.ListaRutinasFragmentListener, ClientesChatFragment.ClientesChatFragmentListener,
-    ChatFragment.ChatFragmenListener{
+    ChatFragment.ChatFragmenListener, ReservasFragment.ReservasFragmentListener{
 
     private lateinit var binding: ActivityMainBinding
 
@@ -85,16 +88,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             try {
                 val perfilCliente = apiService.obtenerPerfil("Bearer $token", idCliente)
                 withContext(Dispatchers.Main) {
-                    val headerNavigationView = binding.navigationView.getHeaderView(0)
-                    val imgUsuario = headerNavigationView.findViewById<ImageView>(R.id.image_header)
-                    val decodedString = Base64.decode(perfilCliente.imagen, Base64.DEFAULT)
-                    val bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
-                    imgUsuario.setImageBitmap(bitmap)
+                    if (!perfilCliente.imagen.isNullOrBlank()){
+                        val headerNavigationView = binding.navigationView.getHeaderView(0)
+                        val imgUsuario = headerNavigationView.findViewById<ImageView>(R.id.image_header)
+                        val decodedString = Base64.decode(perfilCliente.imagen, Base64.DEFAULT)
+                        val bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+                        imgUsuario.setImageBitmap(bitmap)
+                    }
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@MainActivity, "Error en la solicitud: ${e.message}", Toast.LENGTH_SHORT).show()
-
+                    Toast.makeText(this@MainActivity, "Error en la solicitud, contacte con el administrador", Toast.LENGTH_SHORT).show()
+                    Log.d("Error MainActivity",e.message.toString())
                 }
             }
         }
@@ -157,6 +162,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 return true
             }
 
+            R.id.avisos_nav_option -> {
+                supportFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    replace<AlertasFragment>(R.id.fragmentContainerView_main)
+                    addToBackStack(null)
+                }
+                return true
+            }
+
+            R.id.mis_reservas_nav_option -> {
+                supportFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    replace<ReservasFragment>(R.id.fragmentContainerView_main)
+                    addToBackStack(null)
+                }
+                return true
+            }
+
             R.id.rm_calculator_nav_option -> {
                 supportFragmentManager.commit {
                     setReorderingAllowed(true)
@@ -184,14 +207,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .replace(R.id.fragmentContainerView_main, fragment)
                     .addToBackStack(null)
                     .commit()
-                /*
-                supportFragmentManager.commit {
-
-                    setReorderingAllowed(true)
-                    replace<InfoPersonalFragment>(R.id.fragmentContainerView_main)
-                    addToBackStack(null)
-                }
-                 */
                 return true
             }
             else -> {
@@ -212,6 +227,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     setReorderingAllowed(true)
                     replace<InicioFragment>(R.id.fragmentContainerView_main)
                 }
+                binding.navigationView?.setCheckedItem(R.id.home_nav_option)
             } else {
                 super.onBackPressed()
             }
@@ -220,8 +236,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     //NavigationDrawer config end
 
-    override fun onActividadClicked(actividad: ActividadResponse) {
-        val fragment = DetalleActividadFragment.newInstance(actividad)
+    override fun onActividadClickedInicio(actividad: ActividadResponse) {
+        val fragment = DetalleActividadFragment.newInstance(actividad,1)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView_main, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun onActividadClickedReservas(actividad: ActividadResponse) {
+        val fragment = DetalleActividadFragment.newInstance(actividad,0)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView_main, fragment)
             .addToBackStack(null)

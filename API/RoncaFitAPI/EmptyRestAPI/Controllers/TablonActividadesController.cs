@@ -94,5 +94,41 @@ namespace EmptyRestAPI.Controllers
                 return StatusCode(500, "Error al eliminar la actividad.");
             }
         }
+
+        [HttpGet("obtener/{idCliente}")]
+        public IActionResult Get_TablonActividadesCliente([FromRoute] int idCliente)
+        {
+            string requestId = HttpContext.TraceIdentifier;
+            string Process = "Get_TablonActividadesCliente";
+            try
+            {
+                LoggerResource.Info(requestId, Process);
+
+                if(idCliente == null || idCliente < 1)
+                {
+                    return BadRequest("IdCliente erroneo");
+                }
+
+
+                TablonActividadesObject[]? tablonActs = TablonActividadesResource.ObtenerTablonActividadesDispoCliente(idCliente);
+                if (tablonActs == null)
+                {
+                    LoggerResource.Warning(requestId, Process, "Get_TablonActividadesCliente - Sin datos");
+                    tablonActs = [];
+                }
+
+                // Devolvemos el resultado
+                TablonActividadesResponseObject tablonActsResponse = new TablonActividadesResponseObject();
+                tablonActsResponse.TablonActividades = tablonActs;
+                LoggerResource.Info(requestId, Process, "Return tablonActsResponse");
+                return Ok(tablonActsResponse);
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones no previstas
+                LoggerResource.Error(requestId, Process, ex.Message);
+                return BadRequest(new BadRequestObject() { Mensaje = ex.Message });
+            }
+        }
     }
 }

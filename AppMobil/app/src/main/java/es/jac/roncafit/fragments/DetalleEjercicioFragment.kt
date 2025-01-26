@@ -2,12 +2,13 @@ package es.jac.roncafit.fragments
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
+import androidx.fragment.app.Fragment
+import androidx.media3.common.MediaItem
+import androidx.media3.exoplayer.ExoPlayer
 import es.jac.roncafit.databinding.FragmentDetalleEjercicioBinding
 import es.jac.roncafit.models.ejercicios.EjerciciosResponse
 
@@ -32,10 +33,15 @@ class DetalleEjercicioFragment : Fragment() {
             binding.tvRepeticiones.text = "Repeticiones: ${it.reps}"
             binding.tvDescripcion.text = "Descripción: ${it.descripcion}"
             binding.tvInstrucciones.text = "Instrucciones: ${it.instrucciones}"
-            binding.vvVideo.setVideoURI(Uri.parse(it.urlVideo))
-            val mediaController = MediaController(requireContext())
-            binding.vvVideo.setMediaController(mediaController)
-            mediaController.setAnchorView(binding.vvVideo)
+            if (!it.urlVideo.isNullOrBlank()){
+                val player = ExoPlayer.Builder(requireContext()).build()
+                binding.vvVideo.player = player
+                val mediaItem = MediaItem.fromUri(it.urlVideo)
+                player.setMediaItem(mediaItem)
+                player.prepare()
+                player.play()
+            }
+
 
         }
 

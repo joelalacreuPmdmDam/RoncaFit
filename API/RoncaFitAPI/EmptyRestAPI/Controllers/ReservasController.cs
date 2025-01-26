@@ -57,7 +57,7 @@ namespace EmptyRestAPI.Controllers
 
             if (!puedeReservar)
             {
-                return BadRequest("El cliente ya tiene una reserva en esta fecha y hora.");
+                return StatusCode(409,"El cliente ya tiene una reserva en esta fecha y hora.");
             }
 
             // Si puede reservar, realizar la inserción
@@ -103,6 +103,42 @@ namespace EmptyRestAPI.Controllers
             else
             {
                 return StatusCode(500, "Error al eliminar la reserva.");
+            }
+        }
+
+        [HttpGet("obtener/{idCliente}")]
+        public IActionResult Get_ReservasCliente([FromRoute] int idCliente)
+        {
+            string requestId = HttpContext.TraceIdentifier;
+            string Process = "Get_ReservasCliente";
+            try
+            {
+                LoggerResource.Info(requestId, Process);
+
+                if (idCliente == null || idCliente < 1)
+                {
+                    return BadRequest("IdCliente erroneo");
+                }
+
+
+                TablonActividadesObject[]? tablonActs = ReservasResource.ObtenerReservasCliente(idCliente);
+                if (tablonActs == null)
+                {
+                    LoggerResource.Warning(requestId, Process, "Get_ReservasCliente - Sin datos");
+                    tablonActs = [];
+                }
+
+                // Devolvemos el resultado
+                TablonActividadesResponseObject tablonActsResponse = new TablonActividadesResponseObject();
+                tablonActsResponse.TablonActividades = tablonActs;
+                LoggerResource.Info(requestId, Process, "Return tablonActsResponse");
+                return Ok(tablonActsResponse);
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones no previstas
+                LoggerResource.Error(requestId, Process, ex.Message);
+                return BadRequest(new BadRequestObject() { Mensaje = ex.Message });
             }
         }
     }

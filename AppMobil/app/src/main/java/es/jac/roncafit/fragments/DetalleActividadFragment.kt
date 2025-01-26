@@ -37,6 +37,14 @@ class DetalleActividadFragment : Fragment() {
 
         // Obtener los datos del Bundle
         val actividad = arguments?.getParcelable<ActividadResponse>("actividad")
+        val opcion = arguments?.getInt("opcion")
+        if (opcion == 1){
+            binding.btnReservarAct.text = "RESERVAR"
+        }else if (opcion == 0){
+            binding.btnReservarAct.text = "ELIMINAR RESERVA"
+        }else{
+            binding.btnReservarAct.visibility = View.INVISIBLE
+        }
 
         // Mostrar los detalles de la actividad
         actividad?.let {
@@ -47,7 +55,12 @@ class DetalleActividadFragment : Fragment() {
         }
 
         binding.btnReservarAct.setOnClickListener {
-            reservarActividad(actividad?.id)
+            if (opcion == 1){
+                reservarActividad(actividad?.id)
+            }else{
+                eliminarReserva(actividad?.idReserva)
+            }
+
         }
 
         return binding.root
@@ -73,17 +86,62 @@ class DetalleActividadFragment : Fragment() {
             val reservaRequest = ReservaRequest(idActividadTablon = idActividad, idCliente = userId)
             lifecycleScope.launch(Dispatchers.IO) {
                 try {
-
-                    apiService.insertarReserva("Bearer $token",reservaRequest)
-
-                    withContext(Dispatchers.Main) {
-                        Toast.makeText(requireContext(),"Actividad reservada!",Toast.LENGTH_SHORT).show()
+                    val response = apiService.insertarReserva("Bearer $token",reservaRequest)
+                    if (response.isSuccessful){
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(requireContext(),"Actividad reservada!",Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        if(response.code() == 409){
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(requireContext(),"El cliente tiene una reserva que causa conflictos.",Toast.LENGTH_SHORT).show()
+                            }
+                        }else{
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(requireContext(),"Error en el servidor, contacte con un administrador",Toast.LENGTH_SHORT).show()
+                                Log.d("Error en DetalleActividadFragment","${response.message()} ${response.code()}")
+                            }
+                        }
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
-                        Log.d("aaaaaaa",e.toString())
-                        Toast.makeText(requireContext(), "Error en la solicitud: ${e.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Error, contacte con el administrador", Toast.LENGTH_SHORT).show()
+                        Log.d("Error en DetalleActividadFragment",e.message.toString())
+                    }
+                }
+            }
+        }
+    }
 
+    fun eliminarReserva(idReserva: Int?){
+        if (idReserva != null){
+            // Información del usuario
+            val sharedPreferences = requireContext().getSharedPreferences("es.jac.roncafit_preferences", Context.MODE_PRIVATE)
+            val token = sharedPreferences.getString("auth_token", null)
+
+            if (token == null) {
+                Toast.makeText(requireContext(), "Token no disponible", Toast.LENGTH_SHORT).show()
+                return
+            }
+            val apiService = RetrofitObject.getInstance().create(ReservasService::class.java)
+            val reservaRequest = ReservaRequest(idReserva = idReserva)
+            lifecycleScope.launch(Dispatchers.IO) {
+                try {
+                    val response = apiService.eliminarReserva("Bearer $token",reservaRequest)
+                    if (response.isSuccessful){
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(requireContext(),"Reserva eliminada!",Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(requireContext(),"Error en el servidor, contacte con un administrador",Toast.LENGTH_SHORT).show()
+                            Log.d("Error en DetalleActividadFragment","${response.message()} ${response.code()}")
+                        }
+                    }
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(requireContext(), "Error, contacte con el administrador", Toast.LENGTH_SHORT).show()
+                        Log.d("Error en DetalleActividadFragment",e.message.toString())
                     }
                 }
             }
@@ -92,10 +150,11 @@ class DetalleActividadFragment : Fragment() {
 
 
     companion object {
-        fun newInstance(actividad: ActividadResponse): DetalleActividadFragment {
+        fun newInstance(actividad: ActividadResponse, opcion: Int): DetalleActividadFragment {
             val fragment = DetalleActividadFragment()
             val args = Bundle().apply {
                 putParcelable("actividad", actividad)
+                putInt("opcion", opcion)
             }
             fragment.arguments = args
             return fragment
