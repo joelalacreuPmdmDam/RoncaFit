@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "es.jac.roncafit"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "es.jac.roncafit"
@@ -45,7 +45,7 @@ android {
 dependencies {
 
     //ADDED BY JOEL ALACREU
-    implementation ("androidx.fragment:fragment-ktx:1.6.1")//Cambiar de fragment
+    implementation("androidx.fragment:fragment-ktx:1.6.1")//Cambiar de fragment
     implementation("com.squareup.retrofit2:retrofit:2.9.0")//Retrofit (Gestion API)
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")//Retrofit (Gestion API)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
@@ -57,6 +57,9 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))//Firebase
     implementation("com.google.firebase:firebase-firestore-ktx")//Firestore
     implementation("androidx.activity:activity-ktx:1.8.2")//CallBackFlow
+    implementation("androidx.media3:media3-exoplayer:1.5.0")
+    implementation("androidx.media3:media3-exoplayer-dash:1.5.0")
+    implementation("androidx.media3:media3-ui:1.5.0")
     //implementation("com.google.android.gms:play-services-base:18.5.0")
     //implementation("androidx.activity:activity-ktx")//CallBackFlow
     //implementation("com.google.firebase:firebase-analytics-ktx:21.2.2")

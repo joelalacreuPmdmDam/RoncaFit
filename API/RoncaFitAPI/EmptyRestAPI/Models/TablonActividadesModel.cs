@@ -12,6 +12,7 @@
         public int? idEmpleado { get; set; }
         public String? instructor { get; set; }
 
+        public int? idReserva { get; set; }
     }
 
     public class TablonActividadesResponseObject

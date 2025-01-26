@@ -1,7 +1,9 @@
 package es.jac.roncafit.fragments
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -130,6 +132,12 @@ class ChatFragment : Fragment() {
                 }
 
         }
+    }
+
+    private fun setBase64ToImageView(base64String: String) {
+        val decodedString = Base64.decode(base64String, Base64.DEFAULT)
+        val bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+        binding.imgChat.setImageBitmap(bitmap)
     }
 
     interface ChatFragmenListener{

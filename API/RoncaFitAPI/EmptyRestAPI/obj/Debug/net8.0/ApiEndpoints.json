@@ -439,6 +439,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EmptyRestAPI.Controllers.ReservasController",
+    "Method": "Get_ReservasCliente",
+    "RelativePath": "Reservas/obtener/{idCliente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idCliente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EmptyRestAPI.Controllers.RutinasController",
     "Method": "Get_Rutinas",
     "RelativePath": "Rutinas/obtener",
@@ -524,6 +540,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmptyRestAPI.Controllers.TablonActividadesController",
+    "Method": "Get_TablonActividadesCliente",
+    "RelativePath": "TablonActividades/obtener/{idCliente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idCliente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

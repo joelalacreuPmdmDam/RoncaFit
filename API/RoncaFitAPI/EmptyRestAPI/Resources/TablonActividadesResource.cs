@@ -134,5 +134,66 @@ namespace EmptyRestAPI.Resources
                 return false;
             }
         }
+
+        public static TablonActividadesObject[]? ObtenerTablonActividadesDispoCliente(int idCliente)
+        {
+            List<TablonActividadesObject> tablonActividades = new List<TablonActividadesObject>();
+
+            string strSQL = @"select ta.id,ta.idActividad,a.actividad,ta.fecha,ta.completa,ta.inscripciones,a.limite,ta.idInstructor,CONCAT(e.nombre, ' ', e.apellidos) as instructor
+                            from tablonActividades ta
+                            inner join empleados e on e.idEmpleado = ta.idInstructor
+                            inner join actividades a on a.idActividad = ta.idActividad
+                            where fecha> GETDATE()
+                            and inscripciones<limite
+                            and ta.id not in (select idActividadTablon from reservas where idCliente = @idCliente)
+                            order by tA.fecha asc
+            ";
+            Dictionary<string, object> Parametros = new Dictionary<string, object>
+            {
+                { "@idCliente", idCliente }
+            };
+
+            try
+            {
+                using (var dbConnection = DataConnectionResource.GetConnection(DataConnectionResource.Sistemas.RoncaFit))
+                {
+                    using (var command = dbConnection.CreateCommand())
+                    {
+                        command.CommandText = strSQL;
+                        foreach (var parametro in Parametros)
+                        {
+                            command.Parameters.AddWithValue(parametro.Key, parametro.Value ?? DBNull.Value);
+                        }
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                TablonActividadesObject actividadTablon = new TablonActividadesObject
+                                {
+                                    id = reader.GetInt32(reader.GetOrdinal("id")),
+                                    idActividad = reader.GetInt32(reader.GetOrdinal("idActividad")),
+                                    actividad = reader.GetString(reader.GetOrdinal("actividad")),
+                                    completa = reader.GetBoolean(reader.GetOrdinal("completa")),
+                                    fecha = reader.GetDateTime(reader.GetOrdinal("fecha")),
+                                    inscripciones = reader.GetInt32(reader.GetOrdinal("inscripciones")),
+                                    limite = reader.GetInt32(reader.GetOrdinal("limite")),
+                                    idEmpleado = reader.GetInt32(reader.GetOrdinal("idInstructor")),
+                                    instructor = reader.GetString(reader.GetOrdinal("instructor")),
+                                };
+                                tablonActividades.Add(actividadTablon);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return tablonActividades.ToArray();
+        }
+
+
     }
 }

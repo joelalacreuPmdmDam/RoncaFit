@@ -50,11 +50,9 @@ class LoginFragment : Fragment() {
         binding.btnLogIn.setOnClickListener {
             val mail = binding.titUser.text.toString()
             val pass = binding.titPass.text.toString()
-            //Verificamos si los campos no están vacíos
             if (mail.isEmpty() || pass.isEmpty()) {
                 Toast.makeText(requireContext(), "Rellena ambos campos", Toast.LENGTH_SHORT).show()
             } else {
-                // Llamar al método login
                 login(mail, pass)
             }
         }
@@ -75,7 +73,7 @@ class LoginFragment : Fragment() {
                     if (response.isSuccessful) {
                         val loginResponse = response.body()
                         loginResponse?.let {
-                            Toast.makeText(requireContext(), "Login exitoso. Bienvenido: ${it.nombreUsuario}", Toast.LENGTH_LONG).show()
+                            //Toast.makeText(requireContext(), "Login exitoso. Bienvenido: ${it.nombreUsuario}", Toast.LENGTH_LONG).show()
                             saveToken(it.token, it.nombreUsuario, it.idCliente)
                             mListener.onLogInBtnClicked()
                         } ?: run {
@@ -84,21 +82,18 @@ class LoginFragment : Fragment() {
                         }
                     } else {
                         // Manejar errores HTTP
-                        Toast.makeText(
-                            requireContext(),
-                            "Error en el servidor: ${response.code()} - ${response.message()}",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        if(response.code() == 401){
+                            Toast.makeText(requireContext(),"Credenciales incorrectas",Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(requireContext(),"Error en el servidor, contacte con un administrador",Toast.LENGTH_SHORT).show()
+                        }
+
                     }
                 }
             } catch (e: SocketTimeoutException) {
                 // Manejar tiempo de espera agotado
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Tiempo de espera agotado. Verifica tu conexión a internet e inténtalo de nuevo.",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(requireContext(),"Tiempo de espera agotado. Verifica tu conexión a internet e inténtalo de nuevo.",Toast.LENGTH_LONG).show()
                 }
             } catch (e: Exception) {
                 // Manejar otros errores
